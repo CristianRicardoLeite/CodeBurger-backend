@@ -1,5 +1,6 @@
 import Express from 'express'
 import routes from './routes.js'
+import './database'
 
 class App {
   constructor () {
