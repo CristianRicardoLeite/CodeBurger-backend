@@ -1,15 +1,24 @@
 # CodeBurger-backend
 
 Um pequeno projeto de Backend, usando 
-
+<br>
 NODEJS
+<br>
 EXPRESS
+<br>
 SEQUELIZE
+<br>
 DOCKER
+<br>
 POSTGRESS
+<br>
 JWT (JSON WEB TOKEN)
+<br>
 MULTER (TO IMAGE UPLOAD)
+<br>
 ARQUITETURA MVC (MODEL VIEWS CONTROLLER)
-
+<br>
+<br>
 PRA SIMULAR REQUISÃO SOFWARES COMO INSOMNIA
+<br>
 VISUALIZAR BANCO DE DADOS POSTBIRD.
