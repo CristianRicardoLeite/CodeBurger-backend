@@ -3,23 +3,27 @@ import routes from './routes.js'
 import './database/index.js'
 import cors from 'cors'
 
+const corsOptions = {
+  origin: "https://code-burger-frontend.vercel.app/",
+  credentials: true,
+}
 class App {
-  constructor () {
+  constructor() {
     this.app = Express()
-    this.app.use(cors())
+    this.app.use(cors(corsOptions))
 
     this.middlewares()
     this.routes()
-    
+
   }
 
-  middlewares () {
+  middlewares() {
     this.app.use(Express.json())
     this.app.use('/product-file', Express.static(process.cwd() + '/uploads'))
     this.app.use('/category-file', Express.static(process.cwd() + '/uploads'))
   }
 
-  routes () {
+  routes() {
     this.app.use(routes)
   }
 }
