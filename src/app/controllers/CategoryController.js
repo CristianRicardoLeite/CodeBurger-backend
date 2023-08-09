@@ -88,7 +88,7 @@ class CategoryController {
     await Category.update({
       name,
       path
-    }, {where: {id}})
+    }, { where: { id } })
 
     return response.status(200).json("Category received your alteration")
   }

@@ -4,7 +4,7 @@ import Category from '../models/Category.js'
 import User from '../models/User.js'
 
 class ProductController {
-  async store (request, response) {
+  async store(request, response) {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
       price: Yup.number().required(),
@@ -37,7 +37,7 @@ class ProductController {
     return response.json(product)
   }
 
-  async index (request, response) {
+  async index(request, response) {
     const product = await Product.findAll({
       include: [
         {
@@ -52,7 +52,7 @@ class ProductController {
   }
 
 
-  async update (request, response) {
+  async update(request, response) {
     const schema = Yup.object().shape({
       name: Yup.string(),
       price: Yup.number(),
@@ -75,28 +75,28 @@ class ProductController {
     const { id } = request.params
 
 
-  const productExist = await Product.findByPk(id)
-  if(!productExist){
-    return response.status(404).json("Esse produto não existe")
-  }
+    const productExist = await Product.findByPk(id)
+    if (!productExist) {
+      return response.status(404).json("Esse produto não existe")
+    }
 
     let path
-    if(request.file){
+    if (request.file) {
       path = request.file.filename
     }
- 
+
     const { name, price, category_id, offer } = request.body
 
-     await Product.update({
+    await Product.update({
       name,
       price,
       category_id,
       path,
       offer
-    }, {where:  {id} })
+    }, { where: { id } })
 
     return response.status(200).json("Product received your alteration")
-  } catch(err){
+  } catch(err) {
     console.log(err)
   }
 }

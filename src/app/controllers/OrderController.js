@@ -6,7 +6,7 @@ import User from '../models/User.js'
 import Order from '../schemas/Order.js'
 
 class OrderController {
-  async store (request, response) {
+  async store(request, response) {
     const schema = Yup.object().shape({
       products: Yup
         .array()
@@ -29,7 +29,7 @@ class OrderController {
       return response.status(400).json({ error: err.errors })
     }
 
-     const productsId = request.body.products.map(product => product.id)
+    const productsId = request.body.products.map(product => product.id)
 
     const updateProducts = await Product.findAll({
       where: {
@@ -72,13 +72,13 @@ class OrderController {
   }
 
 
-  async index(request, response){
+  async index(request, response) {
     const orders = await Order.find()
 
     return response.json(orders)
   }
 
-  async update(request, response){
+  async update(request, response) {
 
     const schema = Yup.object().shape({
       status: Yup
@@ -97,19 +97,19 @@ class OrderController {
       return response.status(401).json()
     }
 
-    const {id} = request.params
+    const { id } = request.params
 
-    const {status} = request.body
+    const { status } = request.body
 
     try {
-      await Order.updateOne({_id: id}, {status})
+      await Order.updateOne({ _id: id }, { status })
     } catch (error) {
       return response.status(400).json({ error: error.message })
     }
 
-    
-    
-    return response.json({ message: 'status was update'})
+
+
+    return response.json({ message: 'status was update' })
   }
 }
 
