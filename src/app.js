@@ -4,7 +4,7 @@ import './database/index.js'
 import cors from 'cors'
 
 const corsOptions = {
-  origin: "https://code-burger-frontend.vercel.app",
+  origin: "http://localhost:3000",
   credentials: true,
 }
 class App {
