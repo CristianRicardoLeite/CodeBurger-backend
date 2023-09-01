@@ -66,13 +66,11 @@ class ProductController {
       return response.status(400).json({ error: err.errors })
     }
 
-    const { admin: isAdmin } = await User.findByPk(request.userId)
-
-
     if (!isAdmin) {
       return response.status(401).json("Dont authorized")
     }
-    const { id } = request.params
+
+    const { admin: isAdmin } = await User.findByPk(request.userId)
 
 
     const productExist = await Product.findByPk(id)
@@ -86,6 +84,8 @@ class ProductController {
     }
 
     const { name, price, category_id, offer } = request.body
+
+    const { id } = request.params
 
     await Product.update({
       name,
