@@ -4,7 +4,8 @@ import './database/index.js'
 import cors from 'cors'
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: ["http://localhost:3000", "https://rounddb.xyz"],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 }
 class App {
